@@ -1,5 +1,5 @@
 import { ChangeEvent, DetailedHTMLProps, forwardRef, InputHTMLAttributes, KeyboardEvent, useState } from 'react'
-import style from './InputPassword.module.scss'
+import styles from './InputPassword.module.scss'
 
 type DefaultInputPasswordPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
@@ -31,13 +31,13 @@ export const InputPassword = forwardRef<Ref, InputPasswordPropsType>(
       onEnter && e.key === 'Enter' && onEnter()
     }
 
-    const finalSpanClassName = `${style.error} ${spanClassName ? spanClassName : ''}`
-    const finalInputClassName = `${style.inputPassword} ${error && style.errorInput} ${className}`
+    const finalSpanClassName = `${styles.error} ${spanClassName ? spanClassName : ''}`
+    const finalInputClassName = `${styles.inputPassword} ${error && styles.errorInput} ${className}`
 
     return (
       <>
-        <label className={`${style.inputContainer} ${finalInputClassName}`}>
-          {fieldName && <span className={style.fieldName}>{fieldName}</span>}
+        <label className={`${styles.inputContainer} ${finalInputClassName}`}>
+          {fieldName && <span className={styles.fieldName}>{fieldName}</span>}
           <input
             ref={ref}
             type={showPass ? 'text' : 'password'}
@@ -45,7 +45,9 @@ export const InputPassword = forwardRef<Ref, InputPasswordPropsType>(
             onKeyDown={onKeyPressCallback}
             {...restProps}
           />
-          <span onClick={() => setShowPass(!showPass)}>{showPass ? '@' : '#'}</span>
+          <span className={styles.icon} onClick={() => setShowPass(!showPass)}>
+            {showPass ? '@' : '#'}
+          </span>
           {error && <span className={finalSpanClassName}>{error}</span>}
         </label>
       </>

@@ -1,5 +1,5 @@
 import { ChangeEvent, DetailedHTMLProps, forwardRef, InputHTMLAttributes, KeyboardEvent } from 'react'
-import style from './InputText.module.scss'
+import styles from './InputText.module.scss'
 
 type DefaultInputTextPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
@@ -27,13 +27,13 @@ export const InputText = forwardRef<Ref, InputTextPropsType>(
       onEnter && e.key === 'Enter' && onEnter()
     }
 
-    const finalSpanClassName = `${style.error} ${spanClassName ? spanClassName : ''}`
-    const finalInputClassName = `${style.inputText} ${error && style.errorInput} ${className}`
+    const finalSpanClassName = `${styles.error} ${spanClassName ? spanClassName : ''}`
+    const finalInputClassName = `${styles.inputText} ${error && styles.errorInput} ${className}`
 
     return (
       <>
-        <label className={`${style.inputContainer} ${finalInputClassName}`}>
-          {fieldName && <span className={style.fieldName}>{fieldName}</span>}
+        <label className={`${styles.inputContainer} ${finalInputClassName}`}>
+          {fieldName && <span className={styles.fieldName}>{fieldName}</span>}
           <input ref={ref} type={'text'} onChange={onChangeHandler} onKeyDown={onKeyPressHandler} {...restProps} />
           {error && <span className={finalSpanClassName}>{error}</span>}
         </label>
