@@ -1,0 +1,50 @@
+.button {
+  display: block;
+  width: 100%;
+  padding: 6px 24px;
+  background: #00B0FF;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  border: 0;
+  border-radius: 2px;
+  transition: 0.2s;
+
+  &:hover {
+    background: #0085C2;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  &.secondary {
+    background: #fff;
+    color: #000;
+  }
+
+  &.outlined {
+    background: transparent;
+    border: 1px solid #00B0FF;
+    color: #00B0FF;
+  }
+
+  &.outlined:hover {
+    background: #00B0FF;
+    color: #fff;
+  }
+
+  &.secondary.outlined {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+
+  &.secondary.outlined:hover {
+    background: #fff;
+    color: #00B0FF;
+  }
+}

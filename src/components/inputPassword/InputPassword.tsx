@@ -45,6 +45,7 @@ export const InputPassword = forwardRef<Ref, InputPasswordPropsType>(
             onKeyDown={onKeyPressCallback}
             {...restProps}
           />
+          {/* Заменить @ # на иконки */}
           <span className={styles.icon} onClick={() => setShowPass(!showPass)}>
             {showPass ? '@' : '#'}
           </span>
